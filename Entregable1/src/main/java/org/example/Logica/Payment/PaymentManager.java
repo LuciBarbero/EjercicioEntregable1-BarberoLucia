@@ -1,11 +1,11 @@
-package org.example.Payment;
+package org.example.Logica.Payment;
 
 public class PaymentManager {
 
     public boolean processPayment(PaymentObjet request) {
         PaymentProcessor processor;
 
-        switch (request.getProvider().toLowerCase()) {
+        switch (request.getProvider()) {
             case "paypal":
                 processor = new PaypalPaymentProcessor(new PaypalGateway());
                 break;

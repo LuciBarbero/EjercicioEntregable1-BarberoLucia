@@ -1,4 +1,4 @@
-package org.example.Shipping;
+package org.example.Logica.Shipping;
 
 public class AirShippingStrategy implements ShippingStrategy {
     @Override
