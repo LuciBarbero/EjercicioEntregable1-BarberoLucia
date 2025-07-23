@@ -9,7 +9,6 @@ public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        // Datos del pago
         System.out.println("Ingrese el monto a pagar:");
         double amount = scanner.nextDouble();
         scanner.nextLine(); // limpiar buffer
@@ -17,7 +16,6 @@ public class Main {
         System.out.println("Seleccione el proveedor de pago (paypal o mercadopago):");
         String provider = scanner.nextLine().toLowerCase();
 
-        // Datos del envío
         System.out.println("Ingrese el peso del paquete:");
         double weight = scanner.nextDouble();
 
@@ -28,7 +26,7 @@ public class Main {
         System.out.println("Ingrese largo:");
         double length = scanner.nextDouble();
 
-        scanner.nextLine(); // limpiar buffer
+        scanner.nextLine();
 
         System.out.println("Ingrese origen:");
         String origin = scanner.nextLine();
@@ -39,7 +37,8 @@ public class Main {
         System.out.println("Seleccione el método de envío (air, truck, boat):");
         String shippingMethod = scanner.nextLine().toLowerCase();
 
-        // Armar futures en paralelo
+        scanner.close();
+
         CompletableFuture<Double> shippingCostFuture = CompletableFuture.supplyAsync(() -> {
             Dimensions dimensions = new Dimensions(width, height, length);
             ShippingStrategy strategy;
